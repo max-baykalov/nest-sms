@@ -1,1 +1,1 @@
-export const testfunc = () => 3
+export { OtpService } from './otp.service';
