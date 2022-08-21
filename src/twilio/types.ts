@@ -3,8 +3,8 @@ import { OtpService } from "../otp.service";
 import { SmsSenderService } from "../sms-sender.service";
 
 export declare type TwilioOptions = TwilioAuthOptions
-  & TwilioOtpServiceFactory
-  & TwilioSmsSenderServiceFactory 
+  & Partial<TwilioOtpServiceFactory>
+  & Partial<TwilioSmsSenderServiceFactory>
 
 declare type TwilioAuthOptions = {
   readonly TWILIO_ACCOUNT_SID: string;

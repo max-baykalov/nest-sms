@@ -1,5 +1,7 @@
 import { DynamicModule, Module } from "@nestjs/common";
 import { Twilio } from "twilio";
+import { DefaultOtpService } from "../default-otp.service";
+import { DefaultSmsSenderService } from "../default-sms-sender.service";
 import { OtpService } from "../otp.service";
 import { SmsSenderService } from "../sms-sender.service";
 import { TwilioOptions } from "./types";
@@ -9,24 +11,20 @@ export class TwilioModule {
   static register(options: TwilioOptions): DynamicModule {
     const twilio = new Twilio(options.TWILIO_ACCOUNT_SID, options.TWILIO_AUTH_TOKEN);
 
+    const providers = [
+      {
+        provide: OtpService,
+        useValue: !options.OtpServiceFactory ? new DefaultOtpService() : options.OtpServiceFactory(twilio),
+      },
+      {
+        provide: SmsSenderService,
+        useValue: !options.SmsSenderServiceFactory ? new DefaultSmsSenderService : options.SmsSenderServiceFactory(twilio),
+      },
+    ];
+
     return {
       module: TwilioModule,
-      providers: [
-        {
-          provide: Twilio,
-          useValue: twilio,
-        },
-        {
-          provide: OtpService,
-          useFactory: options.OtpServiceFactory,
-          inject: [Twilio],
-        },
-        {
-          provide: SmsSenderService,
-          useFactory: options.SmsSenderServiceFactory,
-          inject: [Twilio],
-        }
-      ],
+      providers,
       exports: [OtpService, SmsSenderService],
     };
   }
