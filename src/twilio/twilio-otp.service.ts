@@ -1,6 +1,6 @@
 import { UnauthorizedException, InternalServerErrorException } from '@nestjs/common';
 import { Twilio } from "twilio";
-import { OtpService } from "../otp.service";
+import { OtpService } from "../otp/otp.service";
 
 export class TwilioOtpService extends OtpService {
   constructor(

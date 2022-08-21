@@ -1,6 +1,6 @@
 import { Twilio } from "twilio";
-import { OtpService } from "../otp.service";
-import { SmsSenderService } from "../sms-sender.service";
+import { OtpService } from "../otp/otp.service";
+import { SmsSenderService } from "../sms-sender/sms-sender.service";
 
 export declare type TwilioOptions = TwilioAuthOptions
   & Partial<TwilioOtpServiceFactory>

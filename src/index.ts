@@ -1,3 +1,4 @@
-export { OtpService } from './otp.service';
-export { SmsSenderService } from './sms-sender.service';
-export { FakeOtpService } from './fake-otp.service';
+export { OtpService } from './otp/otp.service';
+export { SmsSenderService } from './sms-sender/sms-sender.service';
+export { FakeOtpService } from './otp/fake-otp.service';
+export { TwilioModule } from './twilio';

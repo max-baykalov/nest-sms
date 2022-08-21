@@ -1,6 +1,6 @@
 import { InternalServerErrorException } from '@nestjs/common';
 import { Twilio } from "twilio";
-import { SmsSenderService } from "../sms-sender.service";
+import { SmsSenderService } from "../sms-sender/sms-sender.service";
 
 export class TwilioSmsSenderService extends SmsSenderService {
   constructor(
