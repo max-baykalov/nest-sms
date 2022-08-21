@@ -1,10 +1,10 @@
 {
-  "name": "nest-sms",
+  "name": "@maxim-baykalov/nest-sms",
   "repository": {
     "type": "git",
     "url": "https://github.com/max-baykalov/nest-sms.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Sms module for Nest.js",
   "source": "src/index.ts",
   "main": "dist/index.js",
