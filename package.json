@@ -21,5 +21,8 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "twilio": "^3.80.1"
+  },
+  "dependencies": {
+    "@nestjs/testing": "^9.0.11"
   }
 }

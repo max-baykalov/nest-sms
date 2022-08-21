@@ -1,3 +1,3 @@
 export abstract class SmsSenderService {
-  abstract sendOtpCode(phone: string, text: string): void;
+  abstract sendSms(phone: string, text: string): void;
 }

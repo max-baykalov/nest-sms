@@ -2,7 +2,7 @@ import { InternalServerErrorException } from '@nestjs/common';
 import { Twilio } from "twilio";
 import { SmsSenderService } from "../sms-sender.service";
 
-export abstract class TwilioSmsSenderService extends SmsSenderService {
+export class TwilioSmsSenderService extends SmsSenderService {
   constructor(
     private readonly client: Twilio,
     private readonly SMS_PROVIDER: string,
@@ -10,7 +10,7 @@ export abstract class TwilioSmsSenderService extends SmsSenderService {
     super();
   }
   
-  async sendOtpCode(phone: string, text: string): Promise<void> {
+  async sendSms(phone: string, text: string): Promise<void> {
     try {
       await this.client.messages.create({
         body: text,

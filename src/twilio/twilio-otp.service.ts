@@ -18,6 +18,7 @@ export class TwilioOtpService extends OtpService {
         .create({ to: phone, channel: 'sms' });
 
     } catch (e) {
+      console.log(e);
       throw new InternalServerErrorException('Can`t send verification code');
     }
   }
