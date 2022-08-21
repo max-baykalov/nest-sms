@@ -4,10 +4,7 @@ import { SmsSenderService } from "../sms-sender.service";
 
 export declare type TwillioOptions = TwilioAuthOptions
   & TwilioOtpServiceFactory
-  & TwilioSmsSenderServiceFactory
-  & {
-    readonly type: 'twilio',
-  } 
+  & TwilioSmsSenderServiceFactory 
 
 export declare type TwilioAuthOptions = {
   readonly TWILIO_ACCOUNT_SID: string;
