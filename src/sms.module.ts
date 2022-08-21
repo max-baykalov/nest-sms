@@ -10,18 +10,21 @@ export declare type SmsOptions = TwillioOptions;
 export class SmsModule {
   static register(options: SmsOptions): DynamicModule {
     const smsModule = this.getCurrentModule(options);
+    const registered = smsModule.register(options);
+
     
     return {
       module: SmsModule,
       imports: [
         smsModule.register(options)
       ],
+      providers: registered.providers,
       exports: [OtpService, SmsSenderService],
     };
   }
 
-  static getCurrentModule(options: SmsOptions) {
-    switch (options.type) {
+  static getCurrentModule({ type }: Pick<SmsOptions, 'type'>) {
+    switch (type) {
       case 'twilio': return TwilioModule;
       default: throw new InternalServerErrorException('Invalid provider type');
     }
