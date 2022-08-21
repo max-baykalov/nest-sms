@@ -2,11 +2,11 @@ import { DynamicModule, Module } from "@nestjs/common";
 import { Twilio } from "twilio";
 import { OtpService } from "../otp.service";
 import { SmsSenderService } from "../sms-sender.service";
-import { TwillioOptions } from "./types";
+import { TwilioOptions } from "./types";
 
 @Module({})
 export class TwilioModule {
-  static register(options: TwillioOptions): DynamicModule {
+  static register(options: TwilioOptions): DynamicModule {
     const twilio = new Twilio(options.TWILIO_ACCOUNT_SID, options.TWILIO_AUTH_TOKEN);
 
     return {
