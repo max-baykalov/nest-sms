@@ -1,0 +1,8 @@
+/node_modules
+/src
+/test/*
+/package-lock.json
+.github/workflows/npm-publish.yml
+jest.config.js 
+tsconfig.json
+.env
